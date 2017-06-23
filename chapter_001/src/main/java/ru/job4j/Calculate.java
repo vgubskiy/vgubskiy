@@ -8,14 +8,11 @@ package ru.job4j;
  */
 
 class Calculate {
-	
-	/**
-	 * Метод main является точкой входа для выполнения программы
-	 * @param args в качестве аргументов принимает массив строк 
-	 */
-	
-	public static void main (String[] args) {
+	/**.
+	* Метод main является точкой входа для выполнения программы
+	* @param args в качестве аргументов принимает массив строк
+	*/
+	public static void main(String[] args) {
 		System.out.println("Hello World!");
 	}
 }
- 

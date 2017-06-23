@@ -1,4 +1,4 @@
-/**
+/**.
 * Package for Calculate task
 *
 * @author Valeriy Gubskiy

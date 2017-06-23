@@ -6,7 +6,7 @@ import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-/**
+/**.
  * Test
  *
  * @author Valeriy Gubskiy
@@ -15,8 +15,7 @@ import static org.junit.Assert.assertThat;
  */
 
 public class CalculateTest {
-	
-	/**
+	/**.
 	 * Test add
 	 */
 	@Test
@@ -30,4 +29,3 @@ public class CalculateTest {
 		);
 	}
 }
- 
