@@ -16,10 +16,20 @@ public class MaxTest {
 	* Тест метода, который возвращает максимальное значение из двух
 	*/
 	@Test
-	public void whenFirstGtSecondThenTrue() {
+	public void whenFirstGtSecondThenFirst() {
 		Max max = new Max();
 		int result = max.max(3, 5);
 		int expected = 5;
+		assertThat(result, is(expected));
+	}
+	/**.
+	* Тест метода, который возвращает максимальное значение из трех
+	*/
+	@Test
+	public void whenFirstGtSecondAndGtThirdThenFirst() {
+		Max max = new Max();
+		int result = max.max(9, 12, 7);
+		int expected = 12;
 		assertThat(result, is(expected));
 	}
 }
