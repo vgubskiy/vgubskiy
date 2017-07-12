@@ -36,6 +36,6 @@ public class Triangle {
 	* @return - возвращает значение площади
 	*/
 	public double area() {
-		return Math.abs(((a.getX() - c.getX()) * (b.getY() - c.getY()) - (b.getX() - c.getX()) * (a.getY() - c.getY())) / 2);
+		return Math.abs(((a.getX() - c.getX()) * (b.getY() - c.getY()) - (b.getX() - c.getX()) * (a.getY() - c.getY())) / 2.0);
 	}
 }
