@@ -7,37 +7,34 @@ import java.util.Arrays;
  * @since 17.07.2017
  */
 public class ArrayDublicate {
-	/**.
+    /**.
 	 * метод удаляет дубликаты из массива
 	 * @param array - исходный массив
 	 * @return - массив без дубликатов
 	 */
 	public String[] remove(String[] array) {
         int len = array.length - 1;
+        int unique = len + 1;
         for (int i = 0; i <= len; i++) {
-            String s = array[i];
             for (int j = i + 1; j <= len; j++) {
-                if (s.equals(array[j])) {
-                    array[j] = "";
-                }
-            }
-        }
-        int counter = 1;
-        for (int i = 1; i <= len; i++) {
-            if (array[i].equals("")) {
-                for (int j = i + 1; j <= len; j++) {
-                    if (!array[j].equals("")) {
-                        array[i] = array[j];
-                        array[j] = "";
-                        counter++;
+                if (array[i].equals("")) {
+                    while (j <= len && array[j].equals("")) {
+                        j++;
+                    }
+                    if (j > len) {
+                        i = len + 1;
                         break;
                     }
+                    array[i] = array[j];
+                    array[j] = "";
+                } else {
+                    if (array[i].equals(array[j])) {
+                        array[j] = "";
+                        unique--;
+                    }
                 }
-            } else {
-                counter++;
-                continue;
             }
         }
-        return Arrays.copyOf(array, counter);
+        return Arrays.copyOf(array, unique);
     }
 }

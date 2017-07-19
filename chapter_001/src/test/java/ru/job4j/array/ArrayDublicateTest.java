@@ -14,10 +14,10 @@ public class ArrayDublicateTest {
 	 */
 	@Test
 	public void whenDublicatesInArrayThenArrayWhithoutDublicates() {
-		String[] arr = {"Привет", "Мир", "Привет", "Супер", "Мир"};
+		String[] arr = {"Привет", "Привет", "Супер", "Мир", "Привет", "Супер", "Мир", "Привет", "Мир"};
 		ArrayDublicate remove = new ArrayDublicate();
 		String[] result = remove.remove(arr);
-		String[] expected = {"Привет", "Мир", "Супер"};
+		String[] expected = {"Привет", "Супер", "Мир"};
 		assertThat(result, is(expected));
 	}
 }
