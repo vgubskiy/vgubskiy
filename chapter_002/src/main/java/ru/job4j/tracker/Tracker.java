@@ -30,9 +30,8 @@ public class Tracker {
      * @return - объект искомой заявки
      */
     public Item findById(String id) {
-        int position = 0;
         Item result = null;
-        for (position = 0; position < 100; position++) {
+        for (int position = 0; position < 100; position++) {
             if (items[position] != null && items[position].getItemId().equals(id)) {
                 result = items[position];
                 break;
@@ -47,9 +46,8 @@ public class Tracker {
      * @return - объект искомой заявки
      */
     public Item findByName(String name) {
-        int position = 0;
         Item result = null;
-        for (position = 0; position < 100; position++) {
+        for (int position = 0; position < 100; position++) {
             if (items[position] != null && items[position].getItemName().equals(name)) {
                 result = items[position];
                 break;
@@ -63,10 +61,9 @@ public class Tracker {
      * @return - массив всех заявок
      */
     public Item[] findAll() {
-        int itemPosition = 0;
         int resultPosition = 0;
         Item[] result = new Item[100];
-        for (itemPosition = 0; itemPosition < 100; itemPosition++) {
+        for (int itemPosition = 0; itemPosition < 100; itemPosition++) {
             if (items[itemPosition] != null) {
                 result[resultPosition] = items[itemPosition];
                 resultPosition++;
@@ -81,8 +78,7 @@ public class Tracker {
      * @param item - объект удаляемой заявки
      */
     public void delete(Item item) {
-        int position = 0;
-        for (position = 0; position < 100; position++) {
+        for (int position = 0; position < 100; position++) {
             if (items[position].getItemId().equals(item.getItemId())) {
                items[position] = null;
                break;
@@ -95,8 +91,7 @@ public class Tracker {
      * @param item - объект заменяемой заявки
      */
     public void update(Item item) {
-        int position = 0;
-        for (position = 0; position < 100; position++) {
+        for (int position = 0; position < 100; position++) {
             if (items[position].getItemId().equals(item.getItemId())) {
                 items[position] = item;
                 break;
