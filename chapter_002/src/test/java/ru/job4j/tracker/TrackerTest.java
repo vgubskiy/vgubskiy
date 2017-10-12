@@ -71,7 +71,7 @@ public class TrackerTest {
     public void whenFindAllinTrackerThenRecieveAllItems() {
         Item[] expect = new Item[3];
         for (int i = 0; i < 3; i++) {
-            Item item = new Item("id" + i, "item" + i, "desc" + i);
+            Item item = new Item("id" + i, "ask" + i, "desc" + i);
             tracker.add(item);
             expect[i] = item;
         }

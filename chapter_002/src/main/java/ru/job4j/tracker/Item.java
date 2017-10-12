@@ -63,4 +63,28 @@ public class Item {
     public String getItemDesc() {
         return desc;
     }
+    /**.
+     ********** СЕТТЕРЫ ***********
+     */
+    /**.
+     * ID зявки
+     * @param id - id заявки
+     */
+    public void setItemId(String id) {
+        this.id = id;
+    }
+    /**.
+     * Имя зявки
+     * @param name - имя заявки
+     */
+    public void setItemName(String name) {
+        this.name = name;
+    }
+    /**.
+     * Описание заявки
+     * @param desc - строка описания
+     */
+    public void setItemDesc(String desc) {
+        this.desc = desc;
+    }
 }

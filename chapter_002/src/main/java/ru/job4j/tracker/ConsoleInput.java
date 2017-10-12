@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @since 17.08.2017
  * @version 1.0
  */
-public class ConsoleInput {
+public class ConsoleInput implements Input {
     /**.
      * Создаем объект типа сканнер
      */
@@ -27,16 +27,16 @@ public class ConsoleInput {
             scanner.next();
         }
         int result = scanner.nextInt();
+        scanner.nextLine();
         return result;
     }
-
     /**.
-     * Метод плучения строки из ввода ползоателя
+     * Метод вывода строки для запроса ввода пользоателя
      * @param string - вывод строки запроса к пользователю
-     * @return - строка ввда пользователя
+     * @return - строка вопроса для пользователя
      */
-    public String item(String string) {
-        System.out.print(string);
-        return scanner.next();
+    public String ask(String string) {
+        System.out.println(string);
+        return scanner.nextLine();
     }
 }

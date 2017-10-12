@@ -33,7 +33,23 @@ public class StartUi {
      * Последний пункт меню - ВЫХОД из меню
      */
     private static final String EXIT = "Exit programm";
-
+    /**.
+     * Создаем трекер
+     */
+    private Tracker tracker = new Tracker();
+    /**.
+     * Создаем ввод данных
+     */
+    private Input input = new ConsoleInput();
+    /**.
+     * Создаем конструктор
+     * @param tracker - объект трекер
+     * @param input - объект ввода данных
+     */
+    public StartUi(Tracker tracker, Input input) {
+        this.tracker = tracker;
+        this.input = input;
+    }
     /**.
      * Метод построения и отображения меню
      */
@@ -60,10 +76,10 @@ public class StartUi {
      * @param input - вводные данные от пользователя
      * @param tracker - объект трекера
      */
-    private static void createItem(ConsoleInput input, Tracker tracker) {
-        String itemId = input.item("Enter item Id: ");
-        String itemName = input.item("Enter Item name: ");
-        String itemDesc = input.item("Enter Item description: ");
+    private static void createItem(Input input, Tracker tracker) {
+        String itemId = input.ask("Enter ask Id: ");
+        String itemName = input.ask("Enter Item name: ");
+        String itemDesc = input.ask("Enter Item description: ");
         Item item = new Item(itemId, itemName, itemDesc);
         System.out.println("Item " + tracker.add(item).getItemName() + " created!");
         System.out.println("");
@@ -90,7 +106,7 @@ public class StartUi {
      * @param input - вводные данные от пользователя
      * @param tracker - объект трекера
      */
-    private static void modifyItem(ConsoleInput input, Tracker tracker) {
+    private static void modifyItem(Input input, Tracker tracker) {
         System.out.println("Modify method");
     }
     /**.
@@ -98,14 +114,14 @@ public class StartUi {
      * @param input - вводные данные от пользователя
      * @param tracker - объект трекера
      */
-    private static void deleteItem(ConsoleInput input, Tracker tracker) {
-        String itemName = input.item("Enter Item name to delete: ");
+    private static void deleteItem(Input input, Tracker tracker) {
+        String itemName = input.ask("Enter Item name to delete: ");
         Item itemToDelete = tracker.findByName(itemName);
         if (itemToDelete != null) {
             tracker.delete(itemToDelete);
             System.out.println("Item " + itemToDelete.getItemName() + " DELETED!");
         } else {
-            System.out.println("There is no such item: " + itemName);
+            System.out.println("There is no such ask: " + itemName);
         }
     }
     /**.
@@ -113,8 +129,8 @@ public class StartUi {
      * @param input - вводные данные от пользователя
      * @param tracker - объект трекера
      */
-    private static void findItembyId(ConsoleInput input, Tracker tracker) {
-        String itemId = input.item("Enter Item Id to find: ");
+    private static void findItembyId(Input input, Tracker tracker) {
+        String itemId = input.ask("Enter Item Id to find: ");
         Item itemToFind = tracker.findById(itemId);
         if (itemToFind != null) {
             System.out.println("Item FOUND: " + itemToFind.getItemName());
@@ -127,8 +143,8 @@ public class StartUi {
      * @param input - вводные данные от пользователя
      * @param tracker - объект трекера
      */
-    private static void findItembyName(ConsoleInput input, Tracker tracker) {
-        String itemname = input.item("Enter Item Name to find: ");
+    private static void findItembyName(Input input, Tracker tracker) {
+        String itemname = input.ask("Enter Item Name to find: ");
         Item itemToFind = tracker.findByName(itemname);
         if (itemToFind != null) {
             System.out.println("Item FOUND: " + itemToFind.getItemId());
@@ -136,13 +152,11 @@ public class StartUi {
             System.out.println("Item with Name " + itemname + " NOT FOUND!");
         }
     }
+
     /**.
-     * Точка входа в программу
-     * @param args - аргументы запуска программы
+     * Метод запуска
      */
-    public static void main(String[] args) {
-        Tracker tracker = new Tracker();
-        ConsoleInput input = new ConsoleInput();
+    public void init() {
         boolean loop = true;
         while (loop) {
             showMenu();
@@ -177,5 +191,16 @@ public class StartUi {
                     break;
             }
         }
+    }
+
+    /**.
+     * Точка входа в программу
+     * @param args - аргументы запуска программы
+     */
+    public static void main(String[] args) {
+        Tracker tracker = new Tracker();
+        Input input = new ConsoleInput();
+        StartUi startUI = new StartUi(tracker, input);
+        startUI.init();
     }
 }
